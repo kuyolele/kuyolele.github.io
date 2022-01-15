@@ -1,249 +1,270 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
 
-  
-  <title>Ubuntu20.04搭建LNMP环境 | 伴鞠余生春秋</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#Ubuntu20.04搭建LNMP环境##环境系统：Ubuntu Server 20.04 LTS 64位LNMP环境：Nginx&#x2F;1.18.0 (Ubuntu)、Mysql 8.0.27、PHP 8.0##步骤1、安装Nginx sudo apt-get install nginx  直接浏览器输入IP地址，显示Welcome to Nginx！则安装成功， 默认web路径在&#x2F;var&#x2F;www&#x2F;">
+<html lang="zh">
+
+<head>
+    
+    <title>Ubuntu20.04搭建LNMP环境 - 伴鞠余生春秋</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="在Ubuntu20.04系统上快速搭建LNMP环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu20.04搭建LNMP环境">
 <meta property="og:url" content="https://kuyolele.github.io/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="伴鞠余生春秋">
-<meta property="og:description" content="#Ubuntu20.04搭建LNMP环境##环境系统：Ubuntu Server 20.04 LTS 64位LNMP环境：Nginx&#x2F;1.18.0 (Ubuntu)、Mysql 8.0.27、PHP 8.0##步骤1、安装Nginx sudo apt-get install nginx  直接浏览器输入IP地址，显示Welcome to Nginx！则安装成功， 默认web路径在&#x2F;var&#x2F;www&#x2F;">
+<meta property="og:description" content="在Ubuntu20.04系统上快速搭建LNMP环境">
 <meta property="og:locale">
 <meta property="og:image" content="https://kuyolele.github.io/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/1.png">
 <meta property="article:published_time" content="2022-01-13T14:33:24.000Z">
-<meta property="article:modified_time" content="2022-01-13T14:34:37.594Z">
+<meta property="article:modified_time" content="2022-01-15T16:42:36.400Z">
 <meta property="article:author" content="Kuyo">
+<meta property="article:tag" content="LNMP环境">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kuyolele.github.io/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/1.png">
-  
-    <link rel="alternate" href="/atom.xml" title="伴鞠余生春秋" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1642266133577">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1642266133578">
+    <link rel="stylesheet" href="/css/style.css?v=1642266133578">
+     
+    
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">伴鞠余生春秋</a>
-      </h1>
-      
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Kuyo" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Kuyo"></a>
+            </div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kuyolele.github.io"></form>
-      </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Kuyo">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="Kuyo" alt="Kuyo">
+        </a>
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Ubuntu20.04搭建LNMP环境" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/" class="article-date">
-  <time datetime="2022-01-13T14:33:24.000Z" itemprop="datePublished">2022-01-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="nexmoe-count">
+        <div><span>文章</span>1</div>
+        <div><span>標籤</span>1</div>
+        <div><span>類別</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
-  
-    <h1 class="article-title" itemprop="name">
-      Ubuntu20.04搭建LNMP环境
-    </h1>
-  
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜尋"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
 
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/LNMP%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">LNMP环境</a>
+    </div>
+    
+  </div>
+
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 Kuyo
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
       
-        <p>#Ubuntu20.04搭建LNMP环境<br>##环境<br>系统：Ubuntu Server 20.04 LTS 64位<br>LNMP环境：Nginx/1.18.0 (Ubuntu)、Mysql 8.0.27、PHP 8.0<br>##步骤<br>1、安装Nginx</p>
-<pre><code>sudo apt-get install nginx
-</code></pre>
-<p>直接浏览器输入IP地址，显示Welcome to Nginx！则安装成功， 默认web路径在/var/www/html<br>2、安装Mysql</p>
-<pre><code>sudo apt install mysql-server mysql-client
-</code></pre>
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Ubuntu20.04搭建LNMP环境" class="lazyload">
+              <h1>Ubuntu20.04搭建LNMP环境</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月13日</a>
+</div>
+
+      
+
+      <p>在Ubuntu20.04系统上快速搭建LNMP环境</p>
+<span id="more"></span>
+<h1 id="Ubuntu20-04搭建LNMP环境"><a href="#Ubuntu20-04搭建LNMP环境" class="headerlink" title="Ubuntu20.04搭建LNMP环境"></a>Ubuntu20.04搭建LNMP环境</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>系统：Ubuntu Server 20.04 LTS 64位<br>LNMP环境：Nginx/1.18.0 (Ubuntu)、Mysql 8.0.27、PHP 8.0  </p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1、安装Nginx"><a href="#1、安装Nginx" class="headerlink" title="1、安装Nginx"></a>1、安装Nginx</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install nginx<br></code></pre></td></tr></table></figure>    
+<p>直接浏览器输入IP地址，显示Welcome to Nginx！则安装成功， 默认web路径在/var/www/html  </p>
+<h3 id="2、安装Mysql"><a href="#2、安装Mysql" class="headerlink" title="2、安装Mysql"></a>2、安装Mysql</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">sudo apt install mysql-<span class="hljs-keyword">server</span> mysql-<span class="hljs-keyword">client</span><br></code></pre></td></tr></table></figure>
 <p>安装后登录，空密码</p>
-<pre><code>mysql -u root -p  登录mysql
-</code></pre>
-<p>因Mysql版本不同，修改root密码的命令也不同，Mysql 8.0版本修改密码命令如下</p>
-<pre><code>alter user&#39;root&#39;@&#39;localhost&#39; identified by &#39;新密码&#39;;
-flush privileges;     ###刷新MySQL的系统权限相关表
-</code></pre>
-<p>3、安装PHP</p>
-<pre><code>sudo apt-add-repository ppa:ondrej/php  ###使用 PPA ppa:ondrej/php
-sudo apt update  ###更新软件库
-sudo apt install php8.0
-sudo apt install php8.0-fpm php8.0-cgi php8.0-common php8.0-curl php8.0-mysql php8.0-mcrypt php8.0-mbstring    ###安装php8.0的拓展
-</code></pre>
-<p>4、配置Nginx<br>打开配置文件</p>
-<pre><code>sudo vi /etc/php/8.0/fpm/pool.d/www.conf
-###修改下面这行
-listen =/run/php/php8.0-fpm.sock  ###一般默认就是正确的，不需要修改
-sudo php-fpm8.0 -t   ###检查配置文件是否出错
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mysql -u root -<span class="hljs-selector-tag">p</span>  登录mysql<br></code></pre></td></tr></table></figure>
+<p>因Mysql版本不同，修改root密码的命令也不同，Mysql 8.0版本修改密码命令如下   </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">alter use<span class="hljs-string">r&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> identified by <span class="hljs-string">&#x27;新密码&#x27;</span>;   <br>flush privileges;     <span class="hljs-comment">###刷新MySQL的系统权限相关表 </span><br></code></pre></td></tr></table></figure>
+<h3 id="3、安装PHP"><a href="#3、安装PHP" class="headerlink" title="3、安装PHP"></a>3、安装PHP</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-add-repository ppa:ondrej/php  ###使用 PPA ppa:ondrej/php<br><span class="hljs-attribute">sudo</span> apt update  ###更新软件库<br><span class="hljs-attribute">sudo</span> apt install php<span class="hljs-number">8</span>.<span class="hljs-number">0</span><br><span class="hljs-attribute">sudo</span> apt install php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-fpm php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-cgi php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-common php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-curl php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mysql php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mcrypt php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mbstring	###安装php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>的拓展<br></code></pre></td></tr></table></figure>
+<h3 id="4、配置Nginx"><a href="#4、配置Nginx" class="headerlink" title="4、配置Nginx"></a>4、配置Nginx</h3><p>打开配置文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo vi <span class="hljs-regexp">/etc/</span>php<span class="hljs-regexp">/8.0/</span>fpm<span class="hljs-regexp">/pool.d/</span>www.conf<br><span class="hljs-comment">###修改下面这行</span><br>listen =<span class="hljs-regexp">/run/</span>php/php8.<span class="hljs-number">0</span>-fpm.sock  <span class="hljs-comment">###一般默认就是正确的，不需要修改</span><br>sudo php-fpm8.<span class="hljs-number">0</span> -t   <span class="hljs-comment">###检查配置文件是否出错</span><br></code></pre></td></tr></table></figure>
 <p>重启php-fpm8.0</p>
-<pre><code>sudo service php8.0-fpm restart
-</code></pre>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> service php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-fpm restart<br></code></pre></td></tr></table></figure>
 <p>修改nginx配置文件</p>
-<pre><code>sudo vi /etc/nginx/sites-enabled/default
-###将路径修改为/var/www,在种类中添加index.php,如下
-root /var/www;
-# Add index.php to the list if you are using PHP
-index index.php index.html index.htm index.nginx-debian.html;
-</code></pre>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">sudo vi /etc/nginx/sites-enabled/<span class="hljs-keyword">default</span><br>###将路径修改为/<span class="hljs-keyword">var</span>/www,在种类中添加<span class="hljs-keyword">index</span>.php,如下<br>root /<span class="hljs-keyword">var</span>/www;<br># <span class="hljs-keyword">Add</span> <span class="hljs-keyword">index</span>.php <span class="hljs-keyword">to</span> the list <span class="hljs-keyword">if</span> you are <span class="hljs-keyword">using</span> PHP<br><span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.php <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm <span class="hljs-keyword">index</span>.nginx-debian.html;<br></code></pre></td></tr></table></figure>
 <p>找到   location ~ .php$  { ，将注释删掉，修改里面#socket 方式 必须和上面socket的listen路径一样，即/run/php/php8.0-fpm.sock</p>
-<pre><code>fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-          #TCP方式
-          #fastcgi_pass 127.0.0.1:9000;
-</code></pre>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">fastcgi_pass</span> unix:/run/php/php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-fpm.sock;<br><span class="hljs-comment">#TCP方式</span><br><span class="hljs-comment">#fastcgi_pass 127.0.0.1:9000;</span><br></code></pre></td></tr></table></figure>
 <p>存在问题就是可能没有fastcgi_pass 127.0.0.1:9000这句，就要去/etc/nginx/sites-available/default中去注释掉，否则会重启nginx出错<br>重启nginx</p>
-<pre><code>sudo service nginx restart
-sudo nginx -t    ###检查nginx配置文件，会提示错误日志
-</code></pre>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">sudo service nginx restart<br>sudo nginx -t    ###检查nginx配置文件，会提示错误日志<br></code></pre></td></tr></table></figure>
 <p>在/var/www下新建php文件，测试是否解析</p>
-<pre><code>&lt;?php
- echo phpinfo();
-   ?&gt;
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>	<span class="hljs-keyword">echo</span> phpinfo();<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 <p>访问IP/phpinfo.php,成功<br><img src="1.png"></p>
 
+  </article>
+
+  
       
+    <div class="nexmoe-post-copyright">
+        <strong>博主：</strong>Kuyo<br>
+        <strong>文章連結：</strong><a href="https://kuyolele.github.io/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/" title="https:&#x2F;&#x2F;kuyolele.github.io&#x2F;2022&#x2F;01&#x2F;13&#x2F;Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;kuyolele.github.io&#x2F;2022&#x2F;01&#x2F;13&#x2F;Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://kuyolele.github.io/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/" data-id="ckyd3bl4900001kuhaoizazop" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+
+
   
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
     
-<nav id="article-nav">
-  
-  
-    <a href="/2022/01/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/LNMP%E7%8E%AF%E5%A2%83/" rel="tag">LNMP环境</a>
+    
+</div>
 
   
-</article>
-
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'dcba8379ffa9def72caf',
+        clientSecret: 'eb48231840b42a53594eb35db8465e0c573b2711',
+        id: window.location.pathname,
+        repo: 'kuyolele.github.io',
+        owner: 'kuyolele',
+        admin: 'kuyolele'
+    })
+    gitalk.render('gitalk')
+</script>
 </section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/01/13/Ubuntu20.04%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/">Ubuntu20.04搭建LNMP环境</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/13/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
       </div>
-      <footer id="footer">
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 Kuyo<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
     </div>
-  </div>
-</footer>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜尋" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1642266133582"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
+
 </html>
