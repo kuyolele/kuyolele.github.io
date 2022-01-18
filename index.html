@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>伴鞠余生春秋</title>
+    <title>Hexo</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -13,45 +13,45 @@
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta property="og:type" content="website">
-<meta property="og:title" content="伴鞠余生春秋">
-<meta property="og:url" content="https://kuyolele.github.io/index.html">
-<meta property="og:site_name" content="伴鞠余生春秋">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://hexo-theme-nexmoe-example.vercel.app/index.html">
+<meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Kuyo">
+<meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1642521676639">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1642521676639">
-    <link rel="stylesheet" href="/css/style.css?v=1642521676639">
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1642524158263">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1642524158263">
+    <link rel="stylesheet" href="/css/style.css?v=1642524158263">
      
     
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body class="mdui-drawer-body-left">
     
     <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(https://raw.githubusercontent.com/kuyolele/kuyolele.github.io/master/images/star.jpeg)"></div>
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
         <div class="mdui-appbar mdui-shadow-0">
             <div class="mdui-toolbar">
                 <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
                 <div class="mdui-toolbar-spacer"></div>
                 <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="/" title="Kuyo" class="mdui-btn mdui-btn-icon"><img src="https://raw.githubusercontent.com/kuyolele/kuyolele.github.io/master/images/avatar.jpeg" alt="Kuyo"></a>
+                <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe"></a>
             </div>
         </div>
     </div>
     <div id="nexmoe-header">
         <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="Kuyo">
-            <img src="https://raw.githubusercontent.com/kuyolele/kuyolele.github.io/master/images/avatar.jpeg" alt="Kuyo" alt="Kuyo">
+        <a href="/" title="John Doe">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe" alt="John Doe">
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>1</div>
-        <div><span>标签</span>1</div>
-        <div><span>分类</span>0</div>
+        <div><span>文章</span>20</div>
+        <div><span>标签</span>6</div>
+        <div><span>分类</span>4</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -59,13 +59,6 @@
             <i class="mdui-list-item-icon nexmoefont icon-home"></i>
             <div class="mdui-list-item-content">
                 回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
-            <div class="mdui-list-item-content">
-                文章归档
             </div>
         </a>
         
@@ -88,13 +81,9 @@
     
     <div class="nexmoe-widget-wrap">
     <div class="nexmoe-widget nexmoe-search">
-        
-            <form id="search_form">
-                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
-                    font-size: 15px !important;
-                    height: 56px !important;
-                    background-image: none;
-                "></label>
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
             </form>
          
     </div>
@@ -113,12 +102,57 @@
 </div>
     
     
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Foo/Bar/">Bar</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Foo/Bar/Baz/">Baz</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Foo/">Foo</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/演示分类/">演示分类</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
 
     
     
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Test/" style="font-size: 10px;">Test</a>
+      <a href="/tags/Bar/" style="font-size: 20px;">Bar</a> <a href="/tags/Baz/" style="font-size: 10px;">Baz</a> <a href="/tags/Foo/" style="font-size: 20px;">Foo</a> <a href="/tags/LNMP%E7%8E%AF%E5%A2%83/" style="font-size: 10px;">LNMP环境</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">演示标签</a>
     </div>
     
   </div>
@@ -126,7 +160,7 @@
     
 </aside>
     <div class="nexmoe-copyright">
-        &copy; 2022 Kuyo
+        &copy; 2022 John Doe
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -141,7 +175,7 @@
         <a href="/2022/01/18/123/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://raw.githubusercontent.com/kuyolele/kuyolele.github.io/master/images/star.jpeg" data-sizes="auto" alt="我曾梦想仗剑走天涯" class="lazyload">
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="我曾梦想仗剑走天涯" class="lazyload">
                     <h1>我曾梦想仗剑走天涯</h1>
                 </div>
             
@@ -158,8 +192,212 @@
         </article>
     </div>
     
+    <div class="nexmoe-post">
+        <a href="/2022/01/13/ubuntu/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Ubuntu20.04搭建LNMP环境" class="lazyload">
+                    <h1>Ubuntu20.04搭建LNMP环境</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月13日</a>
+        </div>
+
+        <article>
+            
+                <p>在Ubuntu20.04系统上快速搭建LNMP环境</p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2021/07/25/post-example/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: NaN%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/compress/5c3aec85a4343.jpg" data-sizes="auto" alt="文章演示页面" class="lazyload">
+                    <h1>文章演示页面</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2021年07月25日</a>
+        </div>
+
+        <article>
+            
+                <p>显示在首页的内容</p>
+<p><a target="_blank" rel="noopener" href="https://vercel.com/?utm_source=theme-nexmoe&utm_campaign=oss" title="Powered By Vercel"><img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Powered By Vercel" title="Powered By Vercel"></a></p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/07/25/code-highlight/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Code Highlight Style test" class="lazyload">
+                    <h1>Code Highlight Style test</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月25日</a>
+        </div>
+
+        <article>
+            
+                <p>Make sure all the code blocks highlighted correctly. All the code samples are come from the demo of <a target="_blank" rel="noopener" href="https://highlightjs.org/">https://highlightjs.org</a></p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2018/07/24/markdown/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Markdown Style test" class="lazyload">
+                    <h1>Markdown Style test</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2018年07月24日</a>
+        </div>
+
+        <article>
+            
+                <p>This post is originated from <a target="_blank" rel="noopener" href="https://gist.github.com/apackeer/4159268">here</a> and is used for testing markdown style. This post contains nearly every markdown usage. Make sure all the markdown elements below show up correctly.</p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2013/12/26/images/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Images" class="lazyload">
+                    <h1>Images</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2013年12月26日</a>
+        </div>
+
+        <article>
+            
+                <p>This is a image test post.</p>
+<p><img src="/assets/wallpaper-2572384.jpg"></p>
+<p><img data-fancybox="gallery" data-sizes="auto"...
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2013/12/25/no-title/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="" class="lazyload">
+                    <h1></h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2013年12月25日</a>
+        </div>
+
+        <article>
+            
+                <p>This post doesn’t have a title. Make sure it’s accessible.</p>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2013/12/25/excerpts/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Excerpts" class="lazyload">
+                    <h1>Excerpts</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2013年12月25日</a>
+        </div>
+
+        <article>
+            
+                <p>The following contents should be invisible in home/archive page.</p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2013/12/25/videos/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Videos" class="lazyload">
+                    <h1>Videos</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2013年12月25日</a>
+        </div>
+
+        <article>
+            
+                <p>This is a video test post.</p>
+<p><strong>Youtube</strong></p>
+<div class="video-container"><iframe...
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2013/12/25/gallery-post/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Gallery Post" class="lazyload">
+                    <h1>Gallery Post</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2013年12月25日</a>
+        </div>
+
+        <article>
+            
+                <p>This post contains 4 photos:</p>
+<ul>
+<li>Widescreen wallpaper</li>
+<li>Portrait photo</li>
+<li>Dual widescreen wallpaper</li>
+<li>Small...
+            
+        </article>
+    </div>
+    
 </section>
 
+    <nav class="nexmoe-page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="nexmoefont icon-right"></i></a>
+    </nav>
+  
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
@@ -191,10 +429,8 @@
 
  
 
-<script async src="/js/app.js?v=1642521676640"></script>
+<script async src="/js/app.js?v=1642524158264"></script>
 
-
-	<script async src="/js/search.js?v=1642521676640"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>

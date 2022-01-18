@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>我曾梦想仗剑走天涯 - Hexo</title>
+    <title>Ubuntu20.04搭建LNMP环境 - Hexo</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,21 +12,25 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta property="og:type" content="article">
-<meta property="og:title" content="我曾梦想仗剑走天涯">
-<meta property="og:url" content="https://hexo-theme-nexmoe-example.vercel.app/2022/01/18/123/index.html">
+    <meta name="description" content="在Ubuntu20.04系统上快速搭建LNMP环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu20.04搭建LNMP环境">
+<meta property="og:url" content="https://hexo-theme-nexmoe-example.vercel.app/2022/01/13/ubuntu/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在Ubuntu20.04系统上快速搭建LNMP环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-18T15:18:33.000Z">
-<meta property="article:modified_time" content="2022-01-18T15:19:11.665Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kuyolele/kuyolele.github.io@latest/images/phpinfo.png">
+<meta property="article:published_time" content="2022-01-13T14:33:24.000Z">
+<meta property="article:modified_time" content="2022-01-18T16:29:24.884Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Test">
+<meta property="article:tag" content="LNMP环境">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kuyolele/kuyolele.github.io@latest/images/phpinfo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
     
-    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1642524158168">
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1642524158168">
-    <link rel="stylesheet" href="/css/style.css?v=1642524158168">
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1642524158172">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1642524158172">
+    <link rel="stylesheet" href="/css/style.css?v=1642524158172">
      
     
 <meta name="generator" content="Hexo 6.0.0"></head>
@@ -177,25 +181,49 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="我曾梦想仗剑走天涯" class="lazyload">
-              <h1>我曾梦想仗剑走天涯</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Ubuntu20.04搭建LNMP环境" class="lazyload">
+              <h1>Ubuntu20.04搭建LNMP环境</h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月18日</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年01月13日</a>
 </div>
 
       
 
-      
+      <p>在Ubuntu20.04系统上快速搭建LNMP环境</p>
+<span id="more"></span>
+<h1 id="Ubuntu20-04搭建LNMP环境"><a href="#Ubuntu20-04搭建LNMP环境" class="headerlink" title="Ubuntu20.04搭建LNMP环境"></a>Ubuntu20.04搭建LNMP环境</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>系统：Ubuntu Server 20.04 LTS 64位<br>LNMP环境：Nginx/1.18.0 (Ubuntu)、Mysql 8.0.27、PHP 8.0  </p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1、安装Nginx"><a href="#1、安装Nginx" class="headerlink" title="1、安装Nginx"></a>1、安装Nginx</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install nginx<br></code></pre></td></tr></table></figure>    
+<p>直接浏览器输入IP地址，显示Welcome to Nginx！则安装成功， 默认web路径在/var/www/html  </p>
+<h3 id="2、安装Mysql"><a href="#2、安装Mysql" class="headerlink" title="2、安装Mysql"></a>2、安装Mysql</h3><figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta">sudo apt install mysql-<span class="hljs-keyword">server</span> mysql-<span class="hljs-keyword">client</span><br></code></pre></td></tr></table></figure>
+<p>安装后登录，空密码</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">mysql -u root -<span class="hljs-selector-tag">p</span>  登录mysql<br></code></pre></td></tr></table></figure>
+<p>因Mysql版本不同，修改root密码的命令也不同，Mysql 8.0版本修改密码命令如下   </p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">alter use<span class="hljs-string">r&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> identified by <span class="hljs-string">&#x27;新密码&#x27;</span>;   <br>flush privileges;     <span class="hljs-comment">###刷新MySQL的系统权限相关表 </span><br></code></pre></td></tr></table></figure>
+<h3 id="3、安装PHP"><a href="#3、安装PHP" class="headerlink" title="3、安装PHP"></a>3、安装PHP</h3><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-add-repository ppa:ondrej/php  ###使用 PPA ppa:ondrej/php<br><span class="hljs-attribute">sudo</span> apt update  ###更新软件库<br><span class="hljs-attribute">sudo</span> apt install php<span class="hljs-number">8</span>.<span class="hljs-number">0</span><br><span class="hljs-attribute">sudo</span> apt install php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-fpm php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-cgi php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-common php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-curl php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mysql php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mcrypt php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-mbstring	###安装php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>的拓展<br></code></pre></td></tr></table></figure>
+<h3 id="4、配置Nginx"><a href="#4、配置Nginx" class="headerlink" title="4、配置Nginx"></a>4、配置Nginx</h3><p>打开配置文件</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">sudo vi <span class="hljs-regexp">/etc/</span>php<span class="hljs-regexp">/8.0/</span>fpm<span class="hljs-regexp">/pool.d/</span>www.conf<br><span class="hljs-comment">###修改下面这行</span><br>listen =<span class="hljs-regexp">/run/</span>php/php8.<span class="hljs-number">0</span>-fpm.sock  <span class="hljs-comment">###一般默认就是正确的，不需要修改</span><br>sudo php-fpm8.<span class="hljs-number">0</span> -t   <span class="hljs-comment">###检查配置文件是否出错</span><br></code></pre></td></tr></table></figure>
+<p>重启php-fpm8.0</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> service php<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-fpm restart<br></code></pre></td></tr></table></figure>
+<p>修改nginx配置文件</p>
+<figure class="highlight oxygene"><table><tr><td class="code"><pre><code class="hljs oxygene">sudo vi /etc/nginx/sites-enabled/<span class="hljs-keyword">default</span><br>###将路径修改为/<span class="hljs-keyword">var</span>/www,在种类中添加<span class="hljs-keyword">index</span>.php,如下<br>root /<span class="hljs-keyword">var</span>/www;<br># <span class="hljs-keyword">Add</span> <span class="hljs-keyword">index</span>.php <span class="hljs-keyword">to</span> the list <span class="hljs-keyword">if</span> you are <span class="hljs-keyword">using</span> PHP<br><span class="hljs-keyword">index</span> <span class="hljs-keyword">index</span>.php <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm <span class="hljs-keyword">index</span>.nginx-debian.html;<br></code></pre></td></tr></table></figure>
+<p>找到   location ~ .php$  { ，将注释删掉，修改里面#socket 方式 必须和上面socket的listen路径一样，即/run/php/php8.0-fpm.sock</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">fastcgi_pass</span> unix:/run/php/php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-fpm.sock;<br><span class="hljs-comment">#TCP方式</span><br><span class="hljs-comment">#fastcgi_pass 127.0.0.1:9000;</span><br></code></pre></td></tr></table></figure>
+<p>存在问题就是可能没有fastcgi_pass 127.0.0.1:9000这句，就要去/etc/nginx/sites-available/default中去注释掉，否则会重启nginx出错<br>重启nginx</p>
+<figure class="highlight clean"><table><tr><td class="code"><pre><code class="hljs clean">sudo service nginx restart<br>sudo nginx -t    ###检查nginx配置文件，会提示错误日志<br></code></pre></td></tr></table></figure>
+<p>在/var/www下新建php文件，测试是否解析</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>	<span class="hljs-keyword">echo</span> phpinfo();<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+<p>访问IP/phpinfo.php,成功<br><img src="https://cdn.jsdelivr.net/gh/kuyolele/kuyolele.github.io@latest/images/phpinfo.png"></p>
+
   </article>
 
   
       
     <div class="nexmoe-post-copyright">
         <strong>本文作者：</strong>John Doe<br>
-        <strong>本文链接：</strong><a href="https://hexo-theme-nexmoe-example.vercel.app/2022/01/18/123/" title="https:&#x2F;&#x2F;hexo-theme-nexmoe-example.vercel.app&#x2F;2022&#x2F;01&#x2F;18&#x2F;123&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;hexo-theme-nexmoe-example.vercel.app&#x2F;2022&#x2F;01&#x2F;18&#x2F;123&#x2F;</a><br>
+        <strong>本文链接：</strong><a href="https://hexo-theme-nexmoe-example.vercel.app/2022/01/13/ubuntu/" title="https:&#x2F;&#x2F;hexo-theme-nexmoe-example.vercel.app&#x2F;2022&#x2F;01&#x2F;13&#x2F;ubuntu&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;hexo-theme-nexmoe-example.vercel.app&#x2F;2022&#x2F;01&#x2F;13&#x2F;ubuntu&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
@@ -207,7 +235,7 @@
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Test/" rel="tag">Test</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/LNMP%E7%8E%AF%E5%A2%83/" rel="tag">LNMP环境</a>
     
 </div>
 
@@ -263,7 +291,7 @@
 
  
 
-<script async src="/js/app.js?v=1642524158169"></script>
+<script async src="/js/app.js?v=1642524158174"></script>
 
 
 
